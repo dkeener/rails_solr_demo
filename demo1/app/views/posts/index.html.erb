@@ -1,0 +1,32 @@
+<% title "Posts" %>
+
+<p><%= link_to "New Post", new_post_path %></p>
+
+<div class="digg_pagination">
+  <%= will_paginate @posts, :container => false %>
+</div>
+
+<table class="post-tbl">
+  <% for post in @posts %>
+    <tr style="background-color: #CCCCCC">
+      <td class="title"><%= raw(post.title) %></td>
+      <td class="post-id"><%= post.id %></td>
+      <td width="20%" style="text-align: center;">
+          <%= link_to "Show", post %> |
+          <%= link_to "Edit", edit_post_path(post) %> |
+          <%= link_to "Delete", post, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+    <tr>
+      <td colspan="3" class="summary"><%= post.body.truncate(300) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div style="height: 5em;">
+  <div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @posts %>
+    </div>
+    <%= will_paginate @posts, :container => false %>
+  </div>
+</div>

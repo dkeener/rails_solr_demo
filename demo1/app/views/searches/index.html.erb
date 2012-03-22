@@ -1,0 +1,32 @@
+<% title "Search Results" %>
+
+<% if @posts.present? %>
+<div class="digg_pagination">
+  <%= will_paginate @posts, :container => false %>
+</div>
+
+<table class="post-tbl">
+  <% for post in @posts %>
+    <tr style="background-color: #CCCCCC">
+      <td class="title"><%= raw(post.title) %></td>
+    </tr>
+    <tr>
+      <td class="summary"><%= post.body.truncate(300) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div style="height: 5em;">
+  <div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @posts %>
+    </div>
+    <%= will_paginate @posts, :container => false %>
+  </div>
+</div>
+
+<% else %>
+
+<p>No search results are available. Please try another search.</p>
+
+<% end %>

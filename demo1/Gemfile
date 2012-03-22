@@ -1,0 +1,16 @@
+source 'http://rubygems.org'
+
+gem 'rails', '3.0.11'      # RAILS web framework
+gem 'sqlite3'              # The default database
+gem 'will_paginate'        # Paigination logic
+gem 'sunspot_rails'        # Sunspot w/ Rails ActiveRecord integration
+
+group :development do
+  gem 'nifty-generators'   # Better scaffolding
+  gem 'sunspot_solr'       # Pre-built SOLR instance
+end
+
+group :test do
+  gem 'sunspot_solr'       # Pre-built SOLR instance
+  gem "mocha"              # Testing tool
+end
