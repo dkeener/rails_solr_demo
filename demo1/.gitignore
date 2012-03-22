@@ -22,5 +22,6 @@ spec/controllers/coverage
 spec/views/coverage
 .redcar
 *redcar*
+.rvmrc
 vendor/cache
 vendor/ruby
